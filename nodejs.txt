@@ -1,0 +1,18 @@
+var http = require("http");
+
+var server = http.createServer(async(req, res) => {
+
+    var a= await fetch("https://fakestoreapi.com/products");
+
+    var f=await a.json()
+
+    console.log(f);
+    
+
+  res.end(JSON.stringify(f));
+});
+
+var port = 3005;
+server.listen(port, () => {
+  console.log("hi server started " + port);
+});
